@@ -39,6 +39,7 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
@@ -48,6 +49,8 @@ body {
   font-family: var(--ff-primary);
   font-size: var(--fs-body);
   line-height: 1.6;
+  padding: 0;
+  height: 100%;
 }
 
 section {
@@ -139,9 +142,6 @@ header {
   padding: 1em;
 }
 
-.logo {
-  max-width: 100px;
-}
 
 .nav {
   position: fixed;
@@ -243,6 +243,7 @@ header {
 
 .intro {
     position: relative;
+    height: 100%;
 }
 
 .intro__img {
@@ -324,7 +325,7 @@ header {
   
   @media (max-width: 30.625em) {
     .projects-section {
-      padding: 6rem 1rem;
+      padding: 5rem 1rem;
     }
   
     .projects-grid {
@@ -369,6 +370,7 @@ header {
     font-size: 2rem;
     background: var(--main-gray);
     transition: background 0.3s ease-out;
+    color: #fff;
   }
   
   .btn-show-all:hover {
@@ -387,156 +389,87 @@ header {
 
   /*About section*/
 
-  .about-me {
-    max-width: 1000px;
-    margin: 0 auto;
-}
 
-.about-me__img {
-    box-shadow: var(--bs);
-}
 
-@media (min-width: 600px) {
-    .about-me {
-        display: grid;
-        grid-template-columns: 1fr 200px;
-        grid-template-areas: 
-            "title img"
-            "subtitle img"
-            "text img";
-        grid-column-gap: 2em;
-    }
-    
-    .section__title--about {
-      grid-area: title;
-  }
-  
-  .section__subtitle--about {
-      grid-column: 1 / -1;
-      
-  }
-    
-    
-    .about-me__img {
-        grid-area: img;
-    }
-}
-.section__subtitle--about {
-        grid-column: 1 / -1;
-        position: relative;
-        left: -1em;
-        width: calc(100% + 2em);
-        padding-left: 1em;
-        padding-right: calc(200px + 4em);
-    }
-    
-    .about-me__img {
-        grid-area: img;
-        position: relative;
-        z-index: 2;
-    }
-
-.container{
-  display: flex;
-  flex-direction: row;
-}
-
-.row{
+/* Create two equal columns that floats next to each other */
+.column {
   border: 2px solid red;
-  flex: 1; 
-  margin: 0 2%;
+  float: left;
+  width: 200%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
 }
 
-
-
-
-
-
-.skills-content{
-  display: flex;
-}
-
-
-.skills .title::after{
-  content: "Services provided by him";
-}
-.skills .skills-content .column{
-  width: calc(50% - 30px);
-}
-.skills .skills-content .left .text{
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-.skills .skills-content .left p{
-  text-align: justify;
-}
-.skills .skills-content .left a{
-  display: inline-block;
-  background: crimson;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 8px 16px;
-  margin-top: 20px;
-  border-radius: 6px;
-  border: 2px solid crimson;
-  transition: all 0.3s ease;
-}
-.skills .skills-content .left a:hover{
-  color: crimson;
-  background: none;
-}
-.skills .skills-content .right .bars{
-  margin-bottom: 15px;
-}
-.skills .skills-content .right .info{
-  display: flex;
-  margin-bottom: 5px;
-  align-items: center;
-  justify-content: space-between;
-}
-.skills .skills-content .right span{
-  font-weight: 500;
-  font-size: 18px;
-}
-.skills .skills-content .right .line{
-  height: 5px;
-  width: 100%;
-  background: lightgrey;
-  position: relative;
-}
-.skills .skills-content .right .line::before{
+/* Clear floats after the columns */
+.row:after {
   content: "";
-  position: absolute;
+  display: table;
+  clear: both;
+}
+
+.skill-container{
+  position: relative;
   height: 100%;
-  left: 0;
-  top: 0;
-  background: #9520b9;
+  width: 100%;
+  display: flex;
 }
-.skills-content .right .html::before{
-  width: 90%;
-}
-.skills-content .right .css::before{
-  width: 80%;
-}
-.skills-content .right .py::before{
-  width: 75%;
-}
-.skills-content .right .cc::before{
+
+.text{
   width: 50%;
 }
-.skills-content .right .opensource::before{
-  width: 60%;
-}
-.skills-content .right .adpi::before{
-  width: 75%;
-}
-.skills-content .right .ai::before{
-  width: 30%;
-}
-.skills-content .right .bld::before{
+.graph{
+  max-height: 100%;
   width: 50%;
+}
+
+.graph p{
+  line-height: 0.3;
+}
+
+
+
+/* Make sure that padding behaves as expected */
+* {box-sizing:border-box}
+
+/* Container for skill bars */
+.container {
+
+  width: 100%; /* Full width */
+  height: 5%;
+  background-color: #ddd; /* Grey background */
+}
+
+.skill {
+  
+  text-align: right; /* Right-align text */
+  padding-top: 0px; /* Add top padding */
+  padding-bottom: 10px; /* Add bottom padding */
+  color: white; /* White text color */
+}
+
+.html {width: 90%;height: 100%; background-color: #948D9B;} /* Green */
+.css {width: 80%;height: 100%; background-color:#B279A7;} /* Blue */
+.py {width: 75%;height: 100%; background-color: #d8a6ce;} /* Red */
+.cp {width: 75%;height: 100%; background-color: #D387AB;} /* Dark Grey */
+.git {width: 60%;height: 100%; background-color: #74626f;} /* Green */
+.ai {width: 55%;height: 100%; background-color: #E899DC;} 
+.java {width: 40%;height: 100%; background-color: #FEC9F1;} 
+
+
+
+@media (max-width: 1000px) {
+  .skill-container{
+    flex-direction: column;
+    display: flex;
+  }
+  .text{
+    max-height: 40%;
+    width: 100%;
+  }
+  .graph{
+    max-height: 50%;
+    width: 100%;
+  }
 }
 
 
